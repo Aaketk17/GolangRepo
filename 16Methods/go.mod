@@ -1,0 +1,3 @@
+module MethodsGolang
+
+go 1.21.3

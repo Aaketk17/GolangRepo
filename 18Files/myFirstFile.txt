@@ -1,0 +1,1 @@
+This is the file creation content for section 18 of Golang series
