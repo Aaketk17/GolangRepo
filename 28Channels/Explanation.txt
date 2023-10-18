@@ -1,0 +1,22 @@
+1.  In channels we can send value to channel until unless there are nothing on other side to
+read those values we are sending 
+2.  Once we close the channel we can read the values we have sent before closing the channel
+3.  if we send 5 values to the channel we need 5 separate listerns to read that values
+4.  If we send 2 values to the channel and close it but if we read three time the third time it
+will send 0 as the value that means there are no data to listen as the channel is closed
+we can handle this by 
+	    val, isChannelOpen := <-myChan
+
+		fmt.Println(isChannelOpen)
+		fmt.Println(val)
+
+here when we are reading the channel if isChannelOpen is false and val is 0 then that means channel is closed
+but if its true and value is 0 that means value 0 is send to the channel
+
+
+// need to clarify
+5.  By using "go func(ch <-chan int, wg *sync.WaitGroup)" and "func(ch chan<- int, wg *sync.WaitGroup)"
+we are saying that <-chan this one is receiving channel so here we cant close the channel if we try to close 
+it will panic an error but in chan<- here it is a sending channel here only we can close the channel
+
+
